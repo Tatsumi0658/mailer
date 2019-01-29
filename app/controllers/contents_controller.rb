@@ -27,8 +27,8 @@ class ContentsController < ApplicationController
     @content = Content.new(content_params)
 
     if @content.save
-      ContactMailer.contact_mail(@contact).deliver
-      redirect_to @contact, notice: 'Contact was successfully'
+      ContentMailer.contact_mail(@content).deliver
+      redirect_to @content, notice: 'Contact was successfully'
     else
       render :new
     end
